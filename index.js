@@ -23,10 +23,10 @@ function RotaryEncoder(pinA, pinB) {
 			this.emit('error', err);
 			return;
 		}
+		this.a = value;
 		if (this.last === 'a')
 			return
 		this.last = 'a'
-		this.a = value;
 		this.tick(-1);
 	});
 
@@ -35,10 +35,10 @@ function RotaryEncoder(pinA, pinB) {
 			this.emit('error', err);
 			return;
 		}
+		this.b = value;
 		if (this.last === 'b')
 			return
 		this.last = 'b'
-		this.b = value;
 		this.tick(1);
 	});
 }
