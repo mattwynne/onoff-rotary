@@ -11,8 +11,8 @@ const Gpio = require('onoff').Gpio;
  * @returns EventEmitter
  */
 function RotaryEncoder(pinA, pinB) {
-	this.gpioA = new Gpio(pinA, 'in', 'both');
-	this.gpioB = new Gpio(pinB, 'in', 'both');
+	this.gpioA = new Gpio(pinA, 'in', 'up');
+	this.gpioB = new Gpio(pinB, 'in', 'up');
 
 	this.a = 0;
 	this.b = 0;
@@ -27,7 +27,7 @@ function RotaryEncoder(pinA, pinB) {
 		if (this.last === 'a')
 			return
 		this.last = 'a'
-		this.tick(-1);
+		this.tick(1);
 	});
 
 	this.gpioB.watch((err, value) => {
@@ -39,7 +39,7 @@ function RotaryEncoder(pinA, pinB) {
 		if (this.last === 'b')
 			return
 		this.last = 'b'
-		this.tick(1);
+		this.tick(-1);
 	});
 }
 
