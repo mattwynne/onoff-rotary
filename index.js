@@ -11,8 +11,8 @@ const Gpio = require('onoff').Gpio;
  * @returns EventEmitter
  */
 function RotaryEncoder(pinA, pinB) {
-	this.gpioA = new Gpio(pinA, 'in', 'up');
-	this.gpioB = new Gpio(pinB, 'in', 'up');
+	this.gpioA = new Gpio(pinA, 'in', 'rising');
+	this.gpioB = new Gpio(pinB, 'in', 'rising');
 
 	this.a = 0;
 	this.b = 0;
